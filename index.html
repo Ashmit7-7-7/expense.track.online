@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css"> <!--CSS sheet se link krne ke liye use krte h. -->
+</head>
+
+<body>
+    <div id="app"> <!--div tag mainly ke block keliye use krte h webpage mai block dalne ke liye div tag ka use hota.-->
+        <h1 class="title">EXPENSE TRACKER</h1>
+        <p class="abt">
+            <q>This expense tracker helps you track your expenses for as long as you wish. Whenever you wish to start
+                tracking afresh (This can be after a week or a month or any period of time), click on the clear records
+                button to clear everything. Click on the 'Export as CSV button to export the records as a .csv
+                file'</q> <!--This tag refers to quoted tag which is used for some quote.--><!--Why I'm using this? : Because the words whih are written are said by me thats the reason.-->
+        </p>
+        <div class="flex">
+            <div class="flex_content flex_form">
+                <form class="form" onsubmit="return false;"> <!-- Form submission naa ho isliye -->
+                    <label for="amount">Amount</label> <!--label tag simply caption ke liye hota h but iska size aur font weight default rehta h-->
+                    <input type="number" id="amount" autocomplete="off" required> <!--required mtlb ki agar ye field fill nhi rahega to entry nhi hogi-->
+
+                    <label for="to">To</label>
+                    <input type="text" id="to" autocomplete="off" required>
+
+                    <label for="note">Note</label> <!--Description ke liye -->
+                    <textarea id="note" rows="5"></textarea>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+
+                    <button class="btn btn_success" type="submit">Add expense</button>
+                    <button class="btn btn_danger" type="button" onclick="clearExpenses()">Clear record</button>
+                    <!--clearExpenses() function h joki js mai define kiya to usse hum js se connect krne ke baad call krskte h-->
+                    <button class="btn btn_primary" type="button" onclick="getCsv()">Export as .csv</button>
+                    <!--same as above-->
+                </form>
+            </div>
+            <div class="flex_content flex_expenses">
+                <h2 class="head">Expenses</h2> <!--h tag is heading tag. There are 6 h tags and h1 is largest and as h2,h3... decreases in number it becomes smaller.-->
+                <div class="total">
+                    <h3>TOTAL</h3>
+                    <h3 id="totalAmount">$0.0</h3>
+                    <!-- Placeholder for total amount means total amountt ki jagah by default ye dikhega as an example.-->
+                </div>
+                <div class="expense" id="expenseList">
+                    <!-- Example of static expense entry --><!--ye ek example h iski referanse se entry hogi-->
+                    <div class="expense">
+                        <p class="to"><b>To:</b> Sample Expense</p> <!--p tag is used for  paragraph and b tag is used for bolding the text.-->
+                        <p class="date"><b>Date:</b> 2024-01-01</p>
+                        <p class="amnt"><b>Amount:</b> $100.00</p>
+                        <p class="note"><b>Note:</b> Sample note</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!--JS se link krne ke liye use krte h. -->
+</body>
+
+</html>
